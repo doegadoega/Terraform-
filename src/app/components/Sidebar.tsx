@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Map,
   Boxes,
+  Play,
 } from "lucide-react";
 
 const navItems = [
@@ -40,6 +41,7 @@ const navItems = [
   { to: "/git-workflow", icon: FolderGit2, label: "Git / GitHub" },
   { to: "/best-practices", icon: Lightbulb, label: "ベストプラクティス" },
   { to: "/exercises", icon: ClipboardCheck, label: "演習問題" },
+  { to: "/videos", icon: Play, label: "学習動画" },
 ];
 
 export function Sidebar() {

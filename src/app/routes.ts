@@ -18,6 +18,7 @@ import { CognitoAuth } from "./components/CognitoAuth";
 import { ZscalerConnector } from "./components/ZscalerConnector";
 import { VpcStepGuide } from "./components/VpcStepGuide";
 import { EcsArchitecture } from "./components/EcsArchitecture";
+import { LearningVideos } from "./components/LearningVideos";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,7 @@ export const router = createBrowserRouter([
       { path: "git-workflow", Component: GitWorkflow },
       { path: "best-practices", Component: BestPractices },
       { path: "exercises", Component: Exercises },
+      { path: "videos", Component: LearningVideos },
     ],
   },
 ]);
