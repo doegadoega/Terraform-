@@ -16,7 +16,7 @@ import {
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
-type Category = "all" | "terraform" | "ecs" | "network" | "deploy" | "aws-basics";
+type Category = "all" | "terraform" | "ecs" | "network" | "deploy" | "aws-basics" | "aws-exam";
 
 interface Video {
   readonly id: string;
@@ -151,6 +151,67 @@ const VIDEOS: readonly Video[] = [
       "ブルーグリーンデプロイメントの仕組みとメリットを解説。ダウンタイムゼロでのデプロイ手法と、ロールバック戦略について。",
     topics: ["Blue/Green", "無停止デプロイ", "ロールバック", "ALB切替", "リスク軽減"],
   },
+  // ─── ずんだもん解説シリーズ（AWS CLF-C02）───
+  {
+    id: "Fa2sGkke3cw",
+    title: "VPCはこの動画で一発理解！IGW/NATGW/NACL/SG/VPCE図解",
+    channel: "ずんだもんと学ぶIT",
+    category: "aws-exam",
+    categoryLabel: "AWS資格対策",
+    description:
+      "AWS CLF-C02 試験対策として VPC の全体像を図解で徹底解説。IGW、NAT Gateway、NACL、セキュリティグループ、VPC エンドポイントの違いと使い分けを学ぶ。",
+    topics: ["VPC", "IGW", "NATGW", "NACL", "SG", "VPCエンドポイント", "CLF-C02"],
+  },
+  {
+    id: "beIufVfg-_0",
+    title: "最重要「アクセス管理機能」を一発理解！IAM・アクセスキー徹底解説",
+    channel: "ずんだもんと学ぶIT",
+    category: "aws-exam",
+    categoryLabel: "AWS資格対策",
+    description:
+      "AWS CLF-C02 の最頻出分野である IAM を図解と実演で徹底解説。IAM ユーザー、ロール、ポリシー、アクセスキー、MFA の違いを一気に理解できる。",
+    topics: ["IAM", "アクセスキー", "ポリシー", "ロール", "MFA", "CLF-C02"],
+  },
+  {
+    id: "Wo7PvndI3O8",
+    title: "EC2,ECS,Lambdaはこの動画で一発理解！コンピューティング図解",
+    channel: "ずんだもんと学ぶIT",
+    category: "aws-exam",
+    categoryLabel: "AWS資格対策",
+    description:
+      "AWS のコンピューティングサービス（EC2、ECS、Lambda）を図解と実演で比較解説。それぞれの特徴・料金体系・ユースケースの違いを一気に整理。",
+    topics: ["EC2", "ECS", "Lambda", "Fargate", "コンピューティング", "CLF-C02"],
+  },
+  {
+    id: "XwgaeuIJDTQ",
+    title: "S3,EBS,EFSはこの動画で一発理解！ストレージサービス図解",
+    channel: "ずんだもんと学ぶIT",
+    category: "aws-exam",
+    categoryLabel: "AWS資格対策",
+    description:
+      "AWS のストレージサービス（S3、EBS、EFS）を図解で徹底比較。オブジェクトストレージとブロックストレージの違い、ストレージクラスの選び方まで解説。",
+    topics: ["S3", "EBS", "EFS", "ストレージクラス", "ライフサイクル", "CLF-C02"],
+  },
+  {
+    id: "dIsFdgmOPMg",
+    title: "RDS, Aurora, DynamoDBとは？データベースサービス徹底解説",
+    channel: "ずんだもんと学ぶIT",
+    category: "aws-exam",
+    categoryLabel: "AWS資格対策",
+    description:
+      "AWS のデータベースサービス（RDS、Aurora、DynamoDB）を図解で徹底解説。リレーショナル DB と NoSQL の違い、各サービスの特徴と使い分けを整理。",
+    topics: ["RDS", "Aurora", "DynamoDB", "リレーショナルDB", "NoSQL", "CLF-C02"],
+  },
+  {
+    id: "aQx3804fhQg",
+    title: "AWS クラウドプラクティショナー資格の取得メリットと合格の近道",
+    channel: "ずんだもんと学ぶIT",
+    category: "aws-exam",
+    categoryLabel: "AWS資格対策",
+    description:
+      "AWS クラウドプラクティショナー（CLF-C02）とはどんな資格か、取得メリット、合格のための効率的な勉強法、頻出概念をまとめて解説。",
+    topics: ["CLF-C02", "資格取得", "勉強法", "出題傾向", "合格のコツ"],
+  },
 ] as const;
 
 const CATEGORIES: readonly { readonly id: Category; readonly label: string; readonly icon: React.ElementType }[] = [
@@ -160,6 +221,7 @@ const CATEGORIES: readonly { readonly id: Category; readonly label: string; read
   { id: "network", label: "ネットワーク", icon: Network },
   { id: "ecs", label: "ECS/コンテナ", icon: Container },
   { id: "deploy", label: "デプロイ/運用", icon: Rocket },
+  { id: "aws-exam", label: "AWS資格対策", icon: Shield },
 ] as const;
 
 // ─── Components ──────────────────────────────────────────────────────────────
@@ -174,6 +236,7 @@ function VideoCard({ video }: { readonly video: Video }) {
     network: "bg-blue-100 text-blue-700",
     ecs: "bg-green-100 text-green-700",
     deploy: "bg-red-100 text-red-700",
+    "aws-exam": "bg-yellow-100 text-yellow-700",
   };
 
   return (
